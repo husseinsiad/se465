@@ -1,0 +1,51 @@
+.navbar-light{
+    background-color: #563d7c;
+    justify-content: center;
+    color: white;
+    margin-top: 10px;
+}
+ 
+h1,h2,h3,h4{
+    color: white;
+}
+hr{
+    color: white;   
+}
+#ItemDiv{
+    border: solid whitesmoke;
+    border-style: outset ;
+}
+#rightDiv{
+    background-color: #563d7c;
+  border: solid black;
+}
+#btn-dollar{
+    width: 120px;
+    border-color: white;
+    background-color: #563d7c;
+}
+#message-form{
+    color: red;
+}
+#btn-quarter{
+    width: 150px;
+    border-color: white;
+    background-color: #563d7c;
+}
+#btn-dime{
+    width: 120px;
+    border-color: white;
+    background-color: #563d7c;
+}
+#btn-nickel{
+    width: 150px;
+    border-color: white;
+    background-color: #563d7c;
+}
+
+#change-money{
+    border-style: dashed ;
+   background-color: bisque;
+   height: 30px;
+   margin-right: 10px;
+}

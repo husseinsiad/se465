@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Vending Machine</title>
+</head>
+
+<body>
+    <div class="container text-center">
+        <nav class="navbar navbar-light text-center rounded-pill">
+            <h1>Vending Machine</h1>
+        </nav>
+        <ul class="list-group" id="errorMessages"></ul>
+        <hr>
+        <div class="row" id="itemRows">
+            <!--Left side-->
+            <div class="col-md-8">
+                <div class="row rounded-top" id="ItemDiv">              
+                        <!--All Items-->                  
+                </div>
+
+            </div> <!-- End col div -->
+            <!-- Right side-->
+        
+            <div class="col-md-4" id="right-form">
+
+                <div id="rightDiv" class="rounded-top">
+                    <!--Inner Row 1-->
+                    <h3><i class="fa fa-usd"> In</i></h3>
+                    <div class="row">
+                        <div class="col-md-4">
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="number"  value="0.00"
+                                class="form-control" placeholder="Deposit Money " id="add-deposit" required readonly/>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end Inner row1-->
+                    <!--Inner Row 2-->
+                    <div class="row">
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary" id="btn-dollar"><i class="fa fa-plus-square-o"> Dollar</i></button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-secondary" id="btn-quarter"><i class="fa fa-plus-square-o"> Quarter</i></button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--End Inner row3-->
+                    <!--Inner Row 2-->
+                    <div class="row">
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-secondary" id="btn-dime"> <i class="fa fa-plus-square-o"> Dime</i></button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary" id="btn-nickel"><i class="fa fa-plus-square-o"> Nickel</i></button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--End Inner row3-->
+                    <hr>
+                    <!--Inner Row 1-->
+                    <h3><i class="fa fa-envelope-o"> Messages</i></h3>
+                    <div class="row">
+                        <div class="col-md-3">
+
+                        </div>
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="message-form" required readonly/>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end Inner row1-->
+                    <!--Inner Row 2-->
+                    <div class="row">
+                        <div class="col-md-4">
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <h5 style="color: white">Item<i class="fa  fa-slack"></i></h5>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="add-item" placeholder="Item" readonly >
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-secondary" id="btn-purchase">Make Purchase</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+
+
+
+                    <h3><i class="fa  fa-usd" id="lbl-change">Change</i></h3>
+                    <div class="row">
+                        <div class="col-md-1">
+
+                        </div>
+                        <div class="col-md-11">
+                            <div class="form-group">
+                                <h5> <label class="form-control" id="change-money"> </label></h5>
+                                 
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!--end Inner row1-->
+                    <!--Inner Row 2-->
+
+                    <div class="row">
+                        <div class="col-md-4">
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-secondary" id="btn-change">Change Return</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--End Inner row3-->
+                    <!--Inner Row 2-->
+
+                </div> <!-- End right div -->
+            </div> <!-- End col div -->
+        </div> <!-- End row div -->
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="js/home.js"></script>
+</body>
+
+</html>
