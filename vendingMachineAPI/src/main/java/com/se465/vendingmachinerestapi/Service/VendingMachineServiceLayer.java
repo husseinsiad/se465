@@ -11,7 +11,7 @@ public interface VendingMachineServiceLayer {
     public List<Item> getAllItems()
             throws VendingPersistenceException;
 
-    public Change vendItem(Item item, BigDecimal deposit)
+    public Change vendItem(String itemid, BigDecimal deposit)
             throws VendingPersistenceException, NoItemInventoryException, InsufficientFundsException ;
 
 }

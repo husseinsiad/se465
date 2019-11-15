@@ -39,8 +39,8 @@ public class VendingController {
     }
 
     @GetMapping("items/{itemid}/{deposit}")
-    public Change vendingItem(@PathVariable Item itemid,@PathVariable BigDecimal deposit) throws VendingPersistenceException, NoItemInventoryException,InsufficientFundsException {
-        Change change = serviceLayer.vendItem(itemid,deposit);
+    public Change vendingItem(@PathVariable String itemid,@PathVariable BigDecimal deposit) throws VendingPersistenceException, NoItemInventoryException,InsufficientFundsException {
+        Change change = ItemDao.vendItem(itemid,deposit);
        return change;
     }
 }

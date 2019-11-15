@@ -37,40 +37,41 @@ public class VendingMachineServiceLayerImpl implements VendingMachineServiceLaye
     }
 
     @Override
-    public Change vendItem(Item item, BigDecimal deposit) throws VendingPersistenceException, NoItemInventoryException, InsufficientFundsException {
+    public Change vendItem(String itemid, BigDecimal deposit) throws VendingPersistenceException, NoItemInventoryException, InsufficientFundsException {
         Change myChange = null;
+//        get items from database
+        Item toReturn = dao.getItem(itemid);
+       
+        checkInventory(toReturn.getNumberOfItemsInInventory());
+        checkMoney(deposit);
 
-        checkInventory(item);
-        checkMoney(item, deposit);
-
-        Item toReturn = dao.getItem(item.getItemid());
         if (toReturn == null) {
             throw new NoItemInventoryException("Invalid Item");
         } else {
 
-            BigDecimal itemCost = item.getItemCost();
+            BigDecimal itemCost = toReturn.getItemCost();
             BigDecimal changeMoney = deposit.subtract(itemCost).multiply(new BigDecimal(100));
             myChange = new Change(changeMoney.intValue());
 
-            int availibleItem = item.getNumberOfItemsInInventory() - 1;
-            item.setNumberOfItemsInInventory(availibleItem);
-            dao.updateItem(item);
+            int availibleItem = toReturn.getNumberOfItemsInInventory() - 1;
+            toReturn.setNumberOfItemsInInventory(availibleItem);
+            dao.updateItem(toReturn);
         }
 
         return myChange;
 
     }
 
-    private void checkInventory(Item item) throws NoItemInventoryException {
-        if (item.getNumberOfItemsInInventory() <= 0) {
+    private void checkInventory(int itemid) throws NoItemInventoryException {
+        if (itemid <= 0) {
             throw new NoItemInventoryException("This Item Is Not Available In The Store");
         }
 
     }
 
-    private void checkMoney(Item itemcost, BigDecimal deposit) throws InsufficientFundsException {
+    private void checkMoney(BigDecimal deposit) throws InsufficientFundsException {
         //if price is greater than deposit, then return insufficent(price>deposit =2, deposit=1)
-        if (itemcost.getItemCost().compareTo(deposit) > 0) {
+        if (deposit.compareTo(deposit)>0) {
             throw new InsufficientFundsException("insufficient funds ");
         }
         //  vendItem(itemcost.getItemid())
